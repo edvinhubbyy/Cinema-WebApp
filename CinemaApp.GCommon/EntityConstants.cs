@@ -22,6 +22,8 @@ public static class Movie
     /// </summary>
     public const int TitleMinLength = 2;
 
+    public const int TitleMaxLengthd = 100;
+
     /// <summary>
     /// Movie Title should be able to store text with length up to 100 characters.
     /// </summary>

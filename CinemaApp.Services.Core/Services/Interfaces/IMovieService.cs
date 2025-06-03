@@ -8,4 +8,10 @@ public interface IMovieService
 
     Task AddMovieAsync(MovieFormInputModel inputModel);
 
+    Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string? id);
+
+    Task<MovieFormInputModel?> GetMovieForEditAsync(string id);
+
+    Task<bool> EditMovieAsync(MovieFormInputModel model);
+
 }

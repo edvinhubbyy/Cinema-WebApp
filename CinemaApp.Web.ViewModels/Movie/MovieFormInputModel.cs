@@ -10,6 +10,10 @@ namespace CinemaApp.Web.ViewModels.Movie
             ReleaseDate = DateTime.UtcNow.ToString(ReleaseDateFormat);
         }
 
+        // Id does not have validation, since the model is shared between Add and Edit actions.
+        public string Id { get; set; }
+            = string.Empty;
+
         [Required(ErrorMessage = TitleRequiredMessage)]
         [MinLength(TitleMinLength, ErrorMessage = TitleMinLengthMessage)]
         [MaxLength(TitleMaxLength, ErrorMessage = TitleMaxLengthMessage)]

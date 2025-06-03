@@ -1,4 +1,5 @@
 ﻿namespace CinemaApp.Data.Models;
+using static CinemaApp.GCommon.EntityConstants;
 
 public class Movie
 {
@@ -16,7 +17,8 @@ public class Movie
 
     public string Description { get; set; } = null!;
 
-    public string? ImageUrl { get; set; }
+    public string ImageUrl { get; set; }
+        = $"~/images/{NoImageUrl}";
 
     public bool IsDeleted { get; set; } = false;
 }

@@ -47,8 +47,85 @@ public class MovieController : Controller
             return this.View(inputModel);
         }
 
-        
 
+
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Details(string? id)
+    {
+
+        try
+        {
+            MovieDetailsViewModel? movieDetails = await this._movieService.GetMovieDetailsByIdAsync(id);
+
+            if (movieDetails == null)
+            {
+                // TODO: Custom 404 page
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            return View(movieDetails);
+        }
+        catch (Exception e)
+        {
+            // TODO: Implement a logger to log the error
+            // TODO:  Add JS bars to indicate that the movie was not found
+            Console.WriteLine(e.Message);
+            return this.RedirectToAction(nameof(Index));
+        }
+
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Edit(string id)
+    {
+
+        try
+        {
+            MovieFormInputModel? editableMovie = await this._movieService.GetMovieForEditAsync(id);
+
+            if (editableMovie == null)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+            return View(editableMovie);
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return this.RedirectToAction(nameof(Index));
+        }
+
+    }
+
+    [HttpPost]
+
+    public async Task<IActionResult> Edit(MovieFormInputModel inputModel)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(inputModel);
+        }
+        try
+        {
+            bool editSuccess = await this._movieService.EditMovieAsync(inputModel);
+
+            if (!editSuccess)
+            {
+                // TODO: Custom 404 page
+                return this.RedirectToAction(nameof(Index));
+            }
+            return this.RedirectToAction(nameof(Details), new { id = inputModel.Id });
+
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return this.RedirectToAction(nameof(Index));
+        }
     }
 
 }

@@ -27,7 +27,7 @@ public class MovieService : IMovieService
                 Genre = m.Genre,
                 Director = m.Director,
                 ReleaseDate = m.ReleaseDate.ToString(AppDateFormat),
-                ImageUrl = m.ImageUrl
+                ImageUrl = m.ImageUrl ?? $"~/images/{NoImageUrl}"
             })
             .ToListAsync();
 
@@ -43,7 +43,7 @@ public class MovieService : IMovieService
             Director = inputModel.Director,
             Description = inputModel.Description,
             Duration = inputModel.Duration,
-            ImageUrl = inputModel.ImageUrl,
+            ImageUrl = inputModel.ImageUrl ?? $"~/images/{NoImageUrl}",
             ReleaseDate = DateOnly.ParseExact(inputModel.ReleaseDate, AppDateFormat, CultureInfo.InvariantCulture,
                 DateTimeStyles.None)
         };
@@ -52,4 +52,89 @@ public class MovieService : IMovieService
         await _dbContext.SaveChangesAsync();
     }
 
+    public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string? id)
+    {
+        MovieDetailsViewModel? movieDetails = null;
+
+        bool isIdValidGuid = Guid.TryParse(id, out Guid movieId);
+
+        if (isIdValidGuid)
+        {
+            movieDetails = await this._dbContext
+                .Movies
+                .AsNoTracking()
+                .Where(m => m.Id == movieId)
+                .Select(m => new MovieDetailsViewModel
+                {
+                    Id = m.Id.ToString(),
+                    Description = m.Description,
+                    Director = m.Director,
+                    Duration = m.Duration,
+                    Genre = m.Genre,
+                    ImageUrl = m.ImageUrl ?? $"~/images/{NoImageUrl}",
+                    ReleaseDate = m.ReleaseDate.ToString(AppDateFormat),
+                    Title = m.Title
+                })
+                .SingleOrDefaultAsync();
+        }
+
+        return movieDetails;
+
+    }
+
+    public async Task<MovieFormInputModel?> GetMovieForEditAsync(string id)
+    {
+        MovieFormInputModel? editableMovie = null;
+
+        bool isIdValidGuid = Guid.TryParse(id, out Guid movieId);
+
+        if (isIdValidGuid)
+        {
+            editableMovie = await this._dbContext
+                .Movies
+                .AsNoTracking()
+                .Where(m => m.Id == movieId)
+                .Select(m => new MovieFormInputModel
+                {
+                    Description = m.Description,
+                    Director = m.Director,
+                    Duration = m.Duration,
+                    Genre = m.Genre,
+                    ImageUrl = m.ImageUrl ?? $"~/images/{NoImageUrl}",
+                    ReleaseDate = m.ReleaseDate.ToString(AppDateFormat),
+                    Title = m.Title
+                })
+                .SingleOrDefaultAsync();
+        }
+
+        return editableMovie;
+    }
+
+    public async Task<bool> EditMovieAsync(MovieFormInputModel inputModel)
+    {
+        Movie? editableMovie = await this._dbContext
+            .Movies
+            .SingleOrDefaultAsync(m => m.Id.ToString() == inputModel.Id);
+
+        if (editableMovie == null)
+        {
+            return false;
+        }
+
+        DateOnly movieReleaseDate = DateOnly.ParseExact(inputModel.ReleaseDate, AppDateFormat,
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.None);
+
+        editableMovie.Title = inputModel.Title;
+        editableMovie.Description = inputModel.Description;
+        editableMovie.Director = inputModel.Director;
+        editableMovie.Duration = inputModel.Duration;
+        editableMovie.Genre = inputModel.Genre;
+        editableMovie.ImageUrl = inputModel.ImageUrl ?? $"~/images/{NoImageUrl}";
+        editableMovie.ReleaseDate = movieReleaseDate;
+
+        await this._dbContext.SaveChangesAsync();
+
+        return true;
+    }
 }

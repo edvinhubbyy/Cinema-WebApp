@@ -13,6 +13,7 @@ public static class EntityConstants
     public const int ReviewContentMaxLength = 1000;
 
     public const string AppDateFormat = "yyyy-MM-dd";
+    public const string NoImageUrl = "no-image.jpeg";
 }
 
 public static class Movie

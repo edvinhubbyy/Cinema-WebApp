@@ -59,6 +59,10 @@ public class MovieConfiguration : IEntityTypeConfiguration<Movie>
             .IsRequired()
             .HasDefaultValue(false);
 
+        // Filter out only non-deleted movies by default
+        entity
+            .HasQueryFilter(m => m.IsDeleted == false);
+
         // Seed movies data with migration for development
         entity
             .HasData(this.SeedMovies());

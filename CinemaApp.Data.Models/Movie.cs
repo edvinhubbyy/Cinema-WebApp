@@ -20,5 +20,5 @@ public class Movie
     public string ImageUrl { get; set; }
         = $"~/images/{NoImageUrl}";
 
-    public bool IsDeleted { get; set; } = false;
+    public bool IsDeleted { get; set; }
 }

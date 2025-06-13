@@ -112,9 +112,7 @@ public class MovieService : IMovieService
 
     public async Task<bool> EditMovieAsync(MovieFormInputModel inputModel)
     {
-        Movie? editableMovie = await this._dbContext
-            .Movies
-            .SingleOrDefaultAsync(m => m.Id.ToString() == inputModel.Id);
+        Movie? editableMovie = await this.FindMovieByStringId(inputModel.Id);
 
         if (editableMovie == null)
         {
@@ -137,4 +135,83 @@ public class MovieService : IMovieService
 
         return true;
     }
+
+    public async Task<DeleteMovieViewModel?> GetMovieDeleteDetailsByIdAsync(string? id)
+    {
+        
+        DeleteMovieViewModel? deleteMovieViewModel = null;
+
+        Movie? movieToBeDeleted = await this.FindMovieByStringId(id);
+
+        if (movieToBeDeleted != null)
+        {
+            deleteMovieViewModel = new DeleteMovieViewModel
+            {
+                Id = movieToBeDeleted.Id.ToString(),
+                Title = movieToBeDeleted.Title.ToString(),
+                ImageUrl = movieToBeDeleted.ImageUrl ?? $"~/images/{NoImageUrl}"
+            };
+        }
+
+        return deleteMovieViewModel;
+    }
+
+    public async Task<bool> SoftDeleteMovieAsync(string? id)
+    {
+
+        Movie? movieToDelete = await this.FindMovieByStringId(id);
+
+        if (movieToDelete == null)
+        {
+            return false;
+        }
+
+        // Soft Delete <=> Edit of IsDeleted property
+        movieToDelete.IsDeleted = true;
+        
+        await this._dbContext.SaveChangesAsync();
+        
+        return true;
+    }
+
+    public async Task<bool> DeleteMovieAsync(string? id)
+    {
+
+        Movie? movieToDelete = await this.FindMovieByStringId(id);
+        if (movieToDelete == null)
+        {
+            return false;
+        }
+
+        // TODO: To be investigated when deleting entities with relations
+        this._dbContext.Movies.Remove(movieToDelete);
+        await this._dbContext.SaveChangesAsync();
+
+        return true;
+    }
+
+    // TODO: Implement as generic async method for finding entities by string Ids
+
+    private async Task<Movie?> FindMovieByStringId(string? id)
+    {
+
+        Movie? movie = null;
+
+        if (!string.IsNullOrWhiteSpace(id))
+        {
+
+            bool isIdValidGuid = Guid.TryParse(id, out Guid movieGuid);
+            if (isIdValidGuid)
+            {
+                movie = await this._dbContext
+                    .Movies
+                    .FindAsync(movieGuid);
+            }
+
+        }
+        return movie;
+
+
+    }
+
 }

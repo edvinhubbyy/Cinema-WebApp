@@ -21,12 +21,6 @@ public class MovieController : Controller
         return View(allMovies);
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Add()
-    {
-        return View();
-    }
-
     [HttpPost]
     public async Task<IActionResult> Add(MovieFormInputModel inputModel)
     {
@@ -101,7 +95,6 @@ public class MovieController : Controller
     }
 
     [HttpPost]
-
     public async Task<IActionResult> Edit(MovieFormInputModel inputModel)
     {
         if (!ModelState.IsValid)
@@ -124,6 +117,62 @@ public class MovieController : Controller
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
+            return this.RedirectToAction(nameof(Index));
+        }
+    }
+
+    // Delete actions
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(string? id)
+    {
+        try
+        {
+            DeleteMovieViewModel? movieDetails = await this._movieService
+                .GetMovieDeleteDetailsByIdAsync(id);
+
+            if (movieDetails == null)
+            {
+                //TODO: Custom 404 page
+                return this.RedirectToAction(nameof(Index));
+            }
+            return this.View(movieDetails);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return this.RedirectToAction(nameof(Index));
+        }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Delete(DeleteMovieViewModel inputModel)
+    {
+        try
+        {
+            if (!this.ModelState.IsValid)
+            {
+                // TODO: Implement JS notification
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            bool deleteResult = await this._movieService
+                .SoftDeleteMovieAsync(inputModel.Id);
+
+            if (deleteResult == false)
+            {
+                // TODO: Implement JS notification that the movie was not deleted
+                // TODO: Alternative Rdirect to Not Found page
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            // TODO: Success notification that the movie was deleted
+            return this.RedirectToAction(nameof(Index));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            
             return this.RedirectToAction(nameof(Index));
         }
     }

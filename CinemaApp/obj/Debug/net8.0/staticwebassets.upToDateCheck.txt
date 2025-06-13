@@ -3,6 +3,7 @@ wwwroot\css\site.css
 wwwroot\css\user.css
 wwwroot\favicon.ico
 wwwroot\images\cinema-panoramic-megeve.jpg
+wwwroot\images\no-image.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

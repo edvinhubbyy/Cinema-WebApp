@@ -25,6 +25,8 @@ public static class Movie
 
     public const int TitleMaxLengthd = 100;
 
+    public const string NoImageUrl = "no-image.jpeg";
+
     /// <summary>
     /// Movie Title should be able to store text with length up to 100 characters.
     /// </summary>

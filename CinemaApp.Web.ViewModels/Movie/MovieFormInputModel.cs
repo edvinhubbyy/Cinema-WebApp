@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using static CinemaApp.GCommon.Movie;
 
+
 namespace CinemaApp.Web.ViewModels.Movie
 {
     public class MovieFormInputModel
@@ -10,7 +11,8 @@ namespace CinemaApp.Web.ViewModels.Movie
             ReleaseDate = DateTime.UtcNow.ToString(ReleaseDateFormat);
         }
 
-        // Id does not have validation, since the model is shared between Add and Edit actions.
+        // Id does not have validation, since the model is shared between Add and Edit
+        // Id will be validated in the corresponding Service method
         public string Id { get; set; }
             = string.Empty;
 
@@ -25,7 +27,7 @@ namespace CinemaApp.Web.ViewModels.Movie
         public string Genre { get; set; } = null!;
 
         [Required(ErrorMessage = ReleaseDateRequiredMessage)]
-        public string ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; } = null!;
 
         [Required(ErrorMessage = DurationRequiredMessage)]
         [Range(DurationMin, DurationMax, ErrorMessage = DurationRangeMessage)]
@@ -43,5 +45,6 @@ namespace CinemaApp.Web.ViewModels.Movie
 
         [MaxLength(ImageUrlMaxLength, ErrorMessage = ImageUrlMaxLengthMessage)]
         public string? ImageUrl { get; set; }
+            = $"/images/{NoImageUrl}";
     }
 }

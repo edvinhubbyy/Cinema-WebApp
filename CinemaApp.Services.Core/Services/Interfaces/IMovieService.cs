@@ -19,8 +19,4 @@ public interface IMovieService
     Task<bool> SoftDeleteMovieAsync(string? id);
 
     Task<bool> DeleteMovieAsync(string? id);
-
-
-
-
 }

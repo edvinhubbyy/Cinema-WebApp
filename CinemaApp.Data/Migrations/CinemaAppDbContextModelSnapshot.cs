@@ -41,7 +41,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("ApplicationUserMovies", t =>
+                    b.ToTable("ApplicationUserMovies", null, t =>
                         {
                             t.HasComment("User Watchlist entry in the system");
                         });
@@ -90,7 +90,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
 
                     b.HasData(
                         new

@@ -80,7 +80,7 @@
                 }
 
                 bool result = await this.watchlistService
-                    .RemoveMovieFromUserWatchlistAsync(movieId, userId);
+                    .RemoveMovieFromWatchlistAsync(movieId, userId);
                 if (result == false)
                 {
                     // TODO: Add JS notifications

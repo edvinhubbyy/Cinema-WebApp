@@ -31,7 +31,7 @@ public class MovieController : BaseController
             foreach (AllMoviesIndexViewModel movieIndexVM in allMovies)
             {
                 movieIndexVM.IsAddedToUserWatchList = await this.watchlistService
-                    .IsMovieAddedToWatchlistAsync(movieIndexVM.Id, this.GetUserId());
+                    .IsMovieAddedToWatchlist(movieIndexVM.Id, this.GetUserId());
             }
         }
 

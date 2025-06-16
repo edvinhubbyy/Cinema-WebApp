@@ -1,33 +1,39 @@
 using CinemaApp.Data;
+using CinemaApp.Services.Core.Services;
+using CinemaApp.Services.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-                       throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 builder.Services
-    .AddDbContext<CinemaAppDbContext>(options => { options.UseSqlServer(connectionString); });
-
+    .AddDbContext<CinemaAppDbContext>(options =>
+    {
+        options.UseSqlServer(connectionString);
+    });
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services
+    .AddDefaultIdentity<IdentityUser>(options =>
     {
-        options.SignIn.RequireConfirmedAccount = false;
         options.SignIn.RequireConfirmedEmail = false;
+        options.SignIn.RequireConfirmedAccount = false;
         options.SignIn.RequireConfirmedPhoneNumber = false;
 
-        options.Password.RequireDigit = false;
-        options.Password.RequireUppercase = false;
-        options.Password.RequireNonAlphanumeric = false;
         options.Password.RequiredLength = 3;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireDigit = false;
         options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredUniqueChars = 0;
     })
     .AddEntityFrameworkStores<CinemaAppDbContext>();
 
 builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IWatchlistService, WatchlistService>();
 
 builder.Services.AddControllersWithViews();
 
@@ -50,11 +56,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    "default",
-    "{controller=Home}/{action=Index}/{id?}");
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();

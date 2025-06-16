@@ -21,4 +21,7 @@ public class Movie
         = $"~/images/{NoImageUrl}";
 
     public bool IsDeleted { get; set; }
+
+    public virtual ICollection<ApplicationUserMovie> UserWatchLists { get; set; } = 
+        new HashSet<ApplicationUserMovie>();
 }

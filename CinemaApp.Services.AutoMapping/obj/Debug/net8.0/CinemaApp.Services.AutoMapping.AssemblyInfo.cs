@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CinemaApp.Services.AutoMapping")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e829fdb614800940e6c56d961a2ef3939c5231ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+134fba130593dfc0991d44588e722ec724e16367")]
 [assembly: System.Reflection.AssemblyProductAttribute("CinemaApp.Services.AutoMapping")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CinemaApp.Services.AutoMapping")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

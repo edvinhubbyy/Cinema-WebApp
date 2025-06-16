@@ -1,146 +1,174 @@
-﻿using CinemaApp.Web.ViewModels;
+﻿using CinemaApp.Services.Core.Services.Interfaces;
+using CinemaApp.Web.ViewModels;
 using CinemaApp.Web.ViewModels.Movie;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static CinemaApp.GCommon.Movie;
 
 namespace CinemaApp.Web.Controllers;
 
-public class MovieController : Controller
+public class MovieController : BaseController
 {
-    private readonly IMovieService _movieService;
 
-    public MovieController(IMovieService movieService)
+    private readonly IMovieService movieService;
+    private readonly IWatchlistService watchlistService;
+
+    // Constructor of the Controller is invoked by ASP.NET Core
+    public MovieController(IMovieService movieService, IWatchlistService watchlistService)
     {
-        _movieService = movieService;
+        this.movieService = movieService;
+        this.watchlistService = watchlistService;
     }
 
+    [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> Index()
     {
-        IEnumerable<AllMoviesIndexViewModel> allMovies = await this._movieService.GetAllMoviesTaskAsync();
+        IEnumerable<AllMoviesIndexViewModel> allMovies = await this.movieService
+            .GetAllMoviesTaskAsync();
+        if (this.IsUserAuthenticated())
+        {
+            foreach (AllMoviesIndexViewModel movieIndexVM in allMovies)
+            {
+                movieIndexVM.IsAddedToUserWatchList = await this.watchlistService
+                    .IsMovieAddedToWatchlistAsync(movieIndexVM.Id, this.GetUserId());
+            }
+        }
 
         return View(allMovies);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Add()
+    {
+        return this.View();
     }
 
     [HttpPost]
     public async Task<IActionResult> Add(MovieFormInputModel inputModel)
     {
-
-        if (!ModelState.IsValid)
+        if (!this.ModelState.IsValid)
         {
-            return View(inputModel);
-        }
-
-        try
-        {
-            await this._movieService.AddMovieAsync(inputModel);
-            return RedirectToAction(nameof(Index));
-        }
-        catch (Exception e)
-        {
-            this.ModelState.AddModelError(string.Empty, ServiceCreatingError);
             return this.View(inputModel);
         }
 
+        try
+        {
+            await this.movieService.AddMovieAsync(inputModel);
 
+            return this.RedirectToAction(nameof(Index));
+        }
+        catch (Exception e)
+        {
+            // TODO: Implement it with the ILogger
+            Console.WriteLine(e.Message);
 
+            this.ModelState.AddModelError(string.Empty, ServiceCreatingError);
+            return this.View(inputModel);
+        }
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> Details(string? id)
     {
-
         try
         {
-            MovieDetailsViewModel? movieDetails = await this._movieService.GetMovieDetailsByIdAsync(id);
-
+            MovieDetailsViewModel? movieDetails = await this.movieService
+                .GetMovieDetailsByIdAsync(id);
             if (movieDetails == null)
             {
                 // TODO: Custom 404 page
                 return this.RedirectToAction(nameof(Index));
             }
 
-            return View(movieDetails);
+            return this.View(movieDetails);
         }
         catch (Exception e)
         {
-            // TODO: Implement a logger to log the error
-            // TODO:  Add JS bars to indicate that the movie was not found
+            // TODO: Implement it with the ILogger
+            // TODO: Add JS bars to indicate such errors
             Console.WriteLine(e.Message);
+
             return this.RedirectToAction(nameof(Index));
         }
-
     }
 
     [HttpGet]
-    public async Task<IActionResult> Edit(string id)
+    public async Task<IActionResult> Edit(string? id)
     {
-
         try
         {
-            MovieFormInputModel? editableMovie = await this._movieService.GetMovieForEditAsync(id);
-
+            MovieFormInputModel? editableMovie = await this.movieService
+                .GetMovieForEditAsync(id);
             if (editableMovie == null)
             {
+                // TODO: Custom 404 page
                 return this.RedirectToAction(nameof(Index));
             }
-            return View(editableMovie);
 
+            return this.View(editableMovie);
         }
         catch (Exception e)
         {
+            // TODO: Implement it with the ILogger
+            // TODO: Add JS bars to indicate such errors
             Console.WriteLine(e.Message);
+
             return this.RedirectToAction(nameof(Index));
         }
-
     }
 
     [HttpPost]
     public async Task<IActionResult> Edit(MovieFormInputModel inputModel)
     {
-        if (!ModelState.IsValid)
+        if (!this.ModelState.IsValid)
         {
-            return View(inputModel);
+            return this.View(inputModel);
         }
+
         try
         {
-            bool editSuccess = await this._movieService.EditMovieAsync(inputModel);
-
+            bool editSuccess = await this.movieService.EditMovieAsync(inputModel);
             if (!editSuccess)
             {
                 // TODO: Custom 404 page
                 return this.RedirectToAction(nameof(Index));
             }
+
             return this.RedirectToAction(nameof(Details), new { id = inputModel.Id });
-
-
         }
         catch (Exception e)
         {
+            // TODO: Implement it with the ILogger
+            // TODO: Add JS bars to indicate such errors
             Console.WriteLine(e.Message);
+
             return this.RedirectToAction(nameof(Index));
         }
     }
-
-    // Delete actions
 
     [HttpGet]
     public async Task<IActionResult> Delete(string? id)
     {
         try
         {
-            DeleteMovieViewModel? movieDetails = await this._movieService
+            DeleteMovieViewModel? movieToBeDeleted = await this.movieService
                 .GetMovieDeleteDetailsByIdAsync(id);
-
-            if (movieDetails == null)
+            if (movieToBeDeleted == null)
             {
-                //TODO: Custom 404 page
+                // TODO: Custom 404 page
                 return this.RedirectToAction(nameof(Index));
             }
-            return this.View(movieDetails);
+
+            return this.View(movieToBeDeleted);
         }
         catch (Exception e)
         {
+            // TODO: Implement it with the ILogger
+            // TODO: Add JS bars to indicate such errors
             Console.WriteLine(e.Message);
+
             return this.RedirectToAction(nameof(Index));
         }
     }
@@ -152,27 +180,28 @@ public class MovieController : Controller
         {
             if (!this.ModelState.IsValid)
             {
-                // TODO: Implement JS notification
+                // TODO: Implement JS notifications
                 return this.RedirectToAction(nameof(Index));
             }
 
-            bool deleteResult = await this._movieService
+            bool deleteResult = await this.movieService
                 .SoftDeleteMovieAsync(inputModel.Id);
-
             if (deleteResult == false)
             {
-                // TODO: Implement JS notification that the movie was not deleted
-                // TODO: Alternative Rdirect to Not Found page
+                // TODO: Implement JS notifications
+                // TODO: Alt_Redirect to Not Found page
                 return this.RedirectToAction(nameof(Index));
             }
 
-            // TODO: Success notification that the movie was deleted
+            // TODO: Success notification
             return this.RedirectToAction(nameof(Index));
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            
+            // TODO: Implement it with the ILogger
+            // TODO: Add JS bars to indicate such errors
+            Console.WriteLine(e.Message);
+
             return this.RedirectToAction(nameof(Index));
         }
     }

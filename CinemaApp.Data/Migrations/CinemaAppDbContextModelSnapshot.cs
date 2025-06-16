@@ -22,6 +22,31 @@ namespace CinemaApp.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CinemaApp.Data.Models.ApplicationUserMovie", b =>
+                {
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("Foreign key to tge references ApplicationUser. Part of the entity composite PK");
+
+                    b.Property<Guid>("MovieId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Foreign key to the references Movie.");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.HasKey("ApplicationUserId", "MovieId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("ApplicationUserMovies", t =>
+                        {
+                            t.HasComment("User Watchlist entry in the system");
+                        });
+                });
+
             modelBuilder.Entity("CinemaApp.Data.Models.Movie", b =>
                 {
                     b.Property<Guid>("Id")
@@ -416,6 +441,25 @@ namespace CinemaApp.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CinemaApp.Data.Models.ApplicationUserMovie", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CinemaApp.Data.Models.Movie", "Movie")
+                        .WithMany("UserWatchLists")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Movie");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -465,6 +509,11 @@ namespace CinemaApp.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CinemaApp.Data.Models.Movie", b =>
+                {
+                    b.Navigation("UserWatchLists");
                 });
 #pragma warning restore 612, 618
         }

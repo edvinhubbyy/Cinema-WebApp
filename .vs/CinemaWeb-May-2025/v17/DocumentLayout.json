@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp.services.core\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|solutionrelative:cinemaapp.services.core\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp\\controllers\\watchlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\controllers\\watchlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp.services.core\\services\\interfaces\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|solutionrelative:cinemaapp.services.core\\services\\interfaces\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp\\views\\movie\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\movie\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp\\views\\movie\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\movie\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp\\views\\movie\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\movie\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}|CinemaApp.Web.ViewModels\\CinemaApp.Web.ViewModels.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp.web.viewmodels\\movie\\deletemovieviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}|CinemaApp.Web.ViewModels\\CinemaApp.Web.ViewModels.csproj|solutionrelative:cinemaapp.web.viewmodels\\movie\\deletemovieviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|c:\\users\\metod\\desktop\\cinemaweb-may-2025-skeleton\\cinemaapp.services.core\\services\\watchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|solutionrelative:cinemaapp.services.core\\services\\watchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,75 +30,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Program.cs",
+              "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
+              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Program.cs*",
+              "RelativeToolTip": "CinemaApp\\Program.cs*",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T14:30:15.532Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MovieService.cs",
-              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Services.Core\\Services\\MovieService.cs",
-              "RelativeDocumentMoniker": "CinemaApp.Services.Core\\Services\\MovieService.cs",
-              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Services.Core\\Services\\MovieService.cs",
-              "RelativeToolTip": "CinemaApp.Services.Core\\Services\\MovieService.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAiwJoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T11:16:29.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DeleteMovieViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Web.ViewModels\\Movie\\DeleteMovieViewModel.cs",
-              "RelativeDocumentMoniker": "CinemaApp.Web.ViewModels\\Movie\\DeleteMovieViewModel.cs",
-              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Web.ViewModels\\Movie\\DeleteMovieViewModel.cs",
-              "RelativeToolTip": "CinemaApp.Web.ViewModels\\Movie\\DeleteMovieViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T11:13:07.096Z",
+              "DocumentIndex": 2,
+              "Title": "Add.cshtml",
+              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Views\\Movie\\Add.cshtml",
+              "RelativeDocumentMoniker": "CinemaApp\\Views\\Movie\\Add.cshtml",
+              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Views\\Movie\\Add.cshtml",
+              "RelativeToolTip": "CinemaApp\\Views\\Movie\\Add.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-15T18:52:58.039Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Views\\Movie\\Delete.cshtml",
-              "RelativeDocumentMoniker": "CinemaApp\\Views\\Movie\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Views\\Movie\\Delete.cshtml",
-              "RelativeToolTip": "CinemaApp\\Views\\Movie\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA6AAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Views\\Movie\\Index.cshtml",
+              "RelativeDocumentMoniker": "CinemaApp\\Views\\Movie\\Index.cshtml",
+              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Views\\Movie\\Index.cshtml",
+              "RelativeToolTip": "CinemaApp\\Views\\Movie\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-13T10:47:47.38Z",
+              "WhenOpened": "2025-06-15T18:33:45.842Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MovieController.cs",
-              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Controllers\\MovieController.cs",
-              "RelativeDocumentMoniker": "CinemaApp\\Controllers\\MovieController.cs",
-              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Controllers\\MovieController.cs",
-              "RelativeToolTip": "CinemaApp\\Controllers\\MovieController.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAwwJkAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "WatchlistService.cs",
+              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Services.Core\\Services\\WatchlistService.cs",
+              "RelativeDocumentMoniker": "CinemaApp.Services.Core\\Services\\WatchlistService.cs",
+              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Services.Core\\Services\\WatchlistService.cs",
+              "RelativeToolTip": "CinemaApp.Services.Core\\Services\\WatchlistService.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAwwHcAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T10:41:39.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T14:59:07.393Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IMovieService.cs",
-              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Services.Core\\Services\\Interfaces\\IMovieService.cs",
-              "RelativeDocumentMoniker": "CinemaApp.Services.Core\\Services\\Interfaces\\IMovieService.cs",
-              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp.Services.Core\\Services\\Interfaces\\IMovieService.cs",
-              "RelativeToolTip": "CinemaApp.Services.Core\\Services\\Interfaces\\IMovieService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA+AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "WatchlistController.cs",
+              "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Controllers\\WatchlistController.cs",
+              "RelativeDocumentMoniker": "CinemaApp\\Controllers\\WatchlistController.cs",
+              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Controllers\\WatchlistController.cs",
+              "RelativeToolTip": "CinemaApp\\Controllers\\WatchlistController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T10:22:34.092Z",
+              "WhenOpened": "2025-06-15T14:46:40.883Z",
               "EditorCaption": ""
             }
           ]

@@ -30,24 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Program.cs",
               "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
-              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Program.cs*",
-              "RelativeToolTip": "CinemaApp\\Program.cs*",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\metod\\Desktop\\CinemaWeb-May-2025-Skeleton\\CinemaApp\\Program.cs",
+              "RelativeToolTip": "CinemaApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-16T14:30:15.532Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -59,8 +59,7 @@
               "RelativeToolTip": "CinemaApp\\Views\\Movie\\Add.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T18:52:58.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T18:52:58.039Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "CinemaApp\\Views\\Movie\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-15T18:33:45.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T18:33:45.842Z"
             },
             {
               "$type": "Document",
@@ -97,8 +95,7 @@
               "RelativeToolTip": "CinemaApp\\Controllers\\WatchlistController.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAFUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T14:46:40.883Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T14:46:40.883Z"
             }
           ]
         }
